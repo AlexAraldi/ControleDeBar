@@ -9,9 +9,24 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Dominio", "2.Dominio", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.Infraestrutura", "3.Infraestrutura", "{CC453C61-AF51-4E42-A999-089674CAA557}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleDeBar.WebApp", "ControleDeBar.WebApp\ControleDeBar.WebApp.csproj", "{DBB4CA02-5C51-4CD2-9FF2-A9820FE09C3D}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DBB4CA02-5C51-4CD2-9FF2-A9820FE09C3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBB4CA02-5C51-4CD2-9FF2-A9820FE09C3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBB4CA02-5C51-4CD2-9FF2-A9820FE09C3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBB4CA02-5C51-4CD2-9FF2-A9820FE09C3D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DBB4CA02-5C51-4CD2-9FF2-A9820FE09C3D} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {05DA8849-3E74-446C-A0A6-60303D5FDF45}
