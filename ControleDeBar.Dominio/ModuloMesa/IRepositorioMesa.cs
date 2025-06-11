@@ -2,6 +2,6 @@
 
 namespace ControleDeBar.Dominio.ModuloMesa
 {
-    public interface IRepositorioMesa : IRepository<Mesa>;
+    public interface IRepositorioMesa : IRepositorio<Mesa>;
         
 }

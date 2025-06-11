@@ -1,14 +1,15 @@
 ﻿
-namespace ControleDeBar.Dominio.Compartilhado
-{
-    public interface IRepository<T> where T : EntidadeBase<T>
-    {
-        void CadastrarRegistro(T novoRegistro);
-        void EditarRegistro(Guid idRegistro, T registroEditado);
-        void ExcluirRegistro(Guid idRegistro);
-        List<T> SelecionarRegistros();
-        T? GetById(int id);
-        public T SelicionarRegistroPorid(Guid idRegistro);
+namespace ControleDeBar.Dominio.Compartilhado;
 
-    }
+public interface IRepositorio<T> where T : EntidadeBase<T>
+{
+    public void CadastrarRegistro(T novoRegistro);
+
+    public bool EditarRegistro(Guid idRegistro, T registroEditado);
+
+    public bool ExcluirRegistro(Guid idRegistro);
+
+    public List<T> SelecionarRegistros();
+
+    public T SelecionarRegistroPorId(Guid idRegistro);
 }
