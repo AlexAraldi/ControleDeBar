@@ -22,6 +22,16 @@ namespace ControleDeBar.Dominio.ModuloMesa
 
 
         }
+
+        internal void Ocupar()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void Desocupar()
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }
