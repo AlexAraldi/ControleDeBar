@@ -1,7 +1,6 @@
-﻿
-using ControleDeBar.Dominio.Compartilhado;
+﻿using ControleDeBar.Dominio.Compartilhado;
 
-namespace ControleDeBar.Infraestrura.Arquivos.Compartilhado;
+namespace ControleDeBar.Infraestrutura.Arquivos.Compartilhado;
 
 public abstract class RepositorioBaseEmArquivo<T> where T : EntidadeBase<T>
 {

@@ -1,8 +1,7 @@
 ﻿using ControleDeBar.Dominio.ModuloMesa;
-using ControleDeBar.Infraestrura.Arquivos.Compartilhado;
+using ControleDeBar.Infraestrutura.Arquivos.Compartilhado;
 
 namespace ControleDeBar.Infraestrutura.Arquivos.ModuloMesa;
-
 
 public class RepositorioMesaEmArquivo : RepositorioBaseEmArquivo<Mesa>, IRepositorioMesa
 {
@@ -11,8 +10,5 @@ public class RepositorioMesaEmArquivo : RepositorioBaseEmArquivo<Mesa>, IReposit
     protected override List<Mesa> ObterRegistros()
     {
         return contexto.Mesas;
-    }   
-           
-    
+    }
 }
-
