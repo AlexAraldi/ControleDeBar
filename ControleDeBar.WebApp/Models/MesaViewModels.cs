@@ -1,4 +1,4 @@
-﻿﻿using ControleDeBar.Dominio.ModuloMesa;
+﻿using ControleDeBar.Dominio.ModuloMesa;
 using ControleDeBar.WebApp.Extensions;
 using System.ComponentModel.DataAnnotations;
 
