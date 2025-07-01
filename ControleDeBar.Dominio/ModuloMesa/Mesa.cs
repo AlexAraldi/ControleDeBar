@@ -7,6 +7,8 @@ namespace ControleDeBar.Dominio.ModuloMesa
     {
         public int Numero { get; set; }
         public int Capacidade { get; set; }
+        public bool EstaOcupada { get; set; }
+
         public Mesa() { }
         public Mesa(int numero, int capacidade) : this()
         {
@@ -20,17 +22,16 @@ namespace ControleDeBar.Dominio.ModuloMesa
             Numero = registroEditado.Numero;
             Capacidade = registroEditado.Capacidade;
 
-
         }
 
-        internal void Ocupar()
+        public void Ocupar()
         {
-            throw new NotImplementedException();
+            EstaOcupada = true;
         }
 
-        internal void Desocupar()
+        public void Desocupar()
         {
-            throw new NotImplementedException();
+            EstaOcupada = false;
         }
     }
 
