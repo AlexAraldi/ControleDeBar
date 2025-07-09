@@ -13,10 +13,10 @@ public class GarcomController : Controller
     private readonly ContextoDados contextoDados;
     private readonly IRepositorioGarcom repositorioGarcom;
 
-    public GarcomController()
+    public GarcomController(ContextoDados contextoDados, IRepositorioGarcom repositorioGarcomEmArquivo)
     {
-        contextoDados = new ContextoDados(true);
-        repositorioGarcom = new RepositorioGarcomEmArquivo(contextoDados);
+        this.contextoDados = contextoDados;
+        this.repositorioGarcom = repositorioGarcomEmArquivo;
     }
 
     public IActionResult Index()

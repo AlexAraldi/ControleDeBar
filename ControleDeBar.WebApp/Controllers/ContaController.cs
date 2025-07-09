@@ -11,6 +11,7 @@ using ControleDeBar.WebApp.Extensions;
 using ControleDeBar.WebApp.Models;
 using Microsoft.AspNetCore.Mvc;
 
+
 namespace ControleDeBar.WebApp.Controllers;
 
 [Route("contas")]
@@ -22,13 +23,13 @@ public class ContaController : Controller
     private readonly IRepositorioGarcom repositorioGarcom;
     private readonly IRepositorioProduto repositorioProduto;
 
-    public ContaController()
+    public ContaController(ContextoDados contextoDados,IRepositorioConta repositorioContaEmArquivo, IRepositorioMesa repositorioMesaEmArquivo, IRepositorioGarcom repositorioGarcomEmArquivo, IRepositorioProduto repositorioProdutoEmArquivo)
     {
-        contextoDados = new ContextoDados(true);
-        repositorioConta = new RepositorioContaEmArquivo(contextoDados);
-        repositorioMesa = new RepositorioMesaEmArquivo(contextoDados);
-        repositorioGarcom = new RepositorioGarcomEmArquivo(contextoDados);
-        repositorioProduto = new RepositorioProdutoEmArquivo(contextoDados);
+        this.contextoDados = contextoDados;
+        this.repositorioConta = repositorioContaEmArquivo;
+        this.repositorioMesa = repositorioMesaEmArquivo;
+        this.repositorioGarcom = repositorioGarcomEmArquivo;
+        this.repositorioProduto = repositorioProdutoEmArquivo;
     }
 
     [HttpGet]
