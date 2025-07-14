@@ -7,6 +7,7 @@ using ControleDeBar.Infraestrutura.Arquivos.ModuloConta;
 using ControleDeBar.Infraestrutura.Arquivos.ModuloGarcom;
 using ControleDeBar.Infraestrutura.Arquivos.ModuloMesa;
 using ControleDeBar.Infraestrutura.Arquivos.ModuloProduto;
+using ControleDeBar.WebApp.ActionFilters;
 
 namespace ControleDeBar.WebApp;
 
@@ -15,6 +16,11 @@ public class Program
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
+
+        builder.Services.AddControllersWithViews(options => 
+        {
+            options.Filters.Add<ValidarModeloAttribute>();  
+        });
 
         builder.Services.AddControllersWithViews();
         builder.Services.AddScoped<ContextoDados>((_) => new ContextoDados(true));
