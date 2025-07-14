@@ -26,10 +26,9 @@ public abstract class RepositorioBaseEmArquivo<T> where T : EntidadeBase<T>
     public bool EditarRegistro(Guid idRegistro, T registroEditado)
     {
         T? registroSelecionado = SelecionarRegistroPorId(idRegistro);
-
-        if (registroSelecionado is null)
-        
+        if (registroSelecionado is null)        
         return false;
+
         registroSelecionado.AtualizarRegistro(registroEditado);
         contexto.Salvar();
         return true;
@@ -38,15 +37,11 @@ public abstract class RepositorioBaseEmArquivo<T> where T : EntidadeBase<T>
     public bool ExcluirRegistro(Guid idRegistro)
     {
         T? registroSelecionado = SelecionarRegistroPorId(idRegistro);
-
-        if (registroSelecionado is null)
-        {
-               return false;
-        }
+        if (registroSelecionado is null)        
+        return false;    
+        
         registros.Remove(registroSelecionado);
-
         contexto.Salvar();
-
         return true;
 
     }

@@ -1,6 +1,7 @@
 ﻿using ControleDeBar.Dominio.ModuloGarcom;
 using ControleDeBar.Infraestrutura.Arquivos.Compartilhado;
 using ControleDeBar.Infraestrutura.Arquivos.ModuloGarcom;
+using ControleDeBar.WebApp.ActionFilters;
 using ControleDeBar.WebApp.Extensions;
 using ControleDeBar.WebApp.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -8,6 +9,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace ControleDeBar.WebApp.Controllers;
 
 [Route("garcons")]
+[ValidarModelo]
+
 public class GarcomController : Controller
 {
     private readonly ContextoDados contextoDados;
@@ -47,18 +50,17 @@ public class GarcomController : Controller
             if (item.Nome.Equals(cadastrarVM.Nome))
             {
                 ModelState.AddModelError("CadastroUnico", "Já existe um garçom registrado com este nome.");
-                break;
+                return View(cadastrarVM);
+
             }
 
             if (item.Cpf.Equals(cadastrarVM.Cpf))
             {
                 ModelState.AddModelError("CadastroUnico", "Já existe um garçom registrado com este CPF.");
-                break;
+                return View(cadastrarVM);
+
             }
         }
-
-        if (!ModelState.IsValid)
-            return View(cadastrarVM);
 
         var entidade = cadastrarVM.ParaEntidade();
 
@@ -92,19 +94,17 @@ public class GarcomController : Controller
             if (!item.Id.Equals(id) && item.Nome.Equals(editarVM.Nome))
             {
                 ModelState.AddModelError("CadastroUnico", "Já existe um garçom registrado com este nome.");
-                break;
+                return View(editarVM);
+
             }
 
             if (!item.Id.Equals(id) && item.Cpf.Equals(editarVM.Cpf))
             {
                 ModelState.AddModelError("CadastroUnico", "Já existe um garçom registrado com este CPF.");
-                break;
+                return View(editarVM);
+
             }
         }
-
-        if (!ModelState.IsValid)
-            return View(editarVM);
-
         var entidadeEditada = editarVM.ParaEntidade();
 
         repositorioGarcom.EditarRegistro(id, entidadeEditada);

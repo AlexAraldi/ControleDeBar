@@ -7,6 +7,7 @@ using ControleDeBar.Infraestrutura.Arquivos.ModuloConta;
 using ControleDeBar.Infraestrutura.Arquivos.ModuloGarcom;
 using ControleDeBar.Infraestrutura.Arquivos.ModuloMesa;
 using ControleDeBar.Infraestrutura.Arquivos.ModuloProduto;
+using ControleDeBar.WebApp.ActionFilters;
 using ControleDeBar.WebApp.Extensions;
 using ControleDeBar.WebApp.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -15,6 +16,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace ControleDeBar.WebApp.Controllers;
 
 [Route("contas")]
+[ValidarModelo]
+
 public class ContaController : Controller
 {
     private readonly ContextoDados contextoDados;
