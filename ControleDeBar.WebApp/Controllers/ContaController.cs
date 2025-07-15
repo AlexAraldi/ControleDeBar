@@ -36,7 +36,7 @@ public class ContaController : Controller
     }
 
     [HttpGet]
-    public IActionResult Index(string status)
+    public IActionResult Index(string? status)
     {
         List<Conta> registros;
 
@@ -48,6 +48,8 @@ public class ContaController : Controller
         }
 
         var visualizarVM = new VisualizarContasViewModel(registros);
+
+
 
         return View(visualizarVM);
     }

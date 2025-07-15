@@ -8,6 +8,7 @@ using ControleDeBar.Infraestrutura.Arquivos.ModuloGarcom;
 using ControleDeBar.Infraestrutura.Arquivos.ModuloMesa;
 using ControleDeBar.Infraestrutura.Arquivos.ModuloProduto;
 using ControleDeBar.WebApp.ActionFilters;
+using ControleDeBar.WebApp.DependecyInjection;
 using Serilog;
 using Serilog.Events;
 
@@ -21,7 +22,8 @@ public class Program
 
         builder.Services.AddControllersWithViews(options => 
         {
-            options.Filters.Add<ValidarModeloAttribute>();  
+            options.Filters.Add<ValidarModeloAttribute>();
+           options.Filters.Add<LogarAcaoAttribute>();
         });
 
         builder.Services.AddControllersWithViews();
@@ -31,17 +33,7 @@ public class Program
         builder.Services.AddScoped<IRepositorioGarcom, RepositorioGarcomEmArquivo>();
         builder.Services.AddScoped<IRepositorioProduto, RepositorioProdutoEmArquivo>();
 
-        var caminhoAppData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-        var caminhoArquivoLogs = Path.Combine(caminhoAppData, "ControleDeBar", "logs.txt");
-
-        Log.Logger = new LoggerConfiguration()
-            .MinimumLevel.Information()
-            .WriteTo.Console()
-            .WriteTo.File(caminhoArquivoLogs, LogEventLevel.Error)
-            .CreateLogger();
-
-        builder.Logging.ClearProviders();
-        builder.Services.AddSerilog();
+        builder.Services.AddSerilogConfig(builder.Logging);
 
         var app = builder.Build();
 
